@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // aydin
     public float MovementSpeed = 7f;
     public float JumpForce = 13f;
     public float GroundCheckRadius;
