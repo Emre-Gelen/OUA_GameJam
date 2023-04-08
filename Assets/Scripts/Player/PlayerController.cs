@@ -109,7 +109,10 @@ public class PlayerController : MonoBehaviour
 
     void UpdateAnimations()
     {
-       
+        _characterAnimator.SetBool("IsWalking", _characterRB.velocity.x != 0);
+        _characterAnimator.SetBool("IsGrounded", _isGrounded);
+        _characterAnimator.SetFloat("yVelocity", _characterRB.velocity.y);
+        _characterAnimator.SetBool("IsWallSliding", _isWallSliding);
     }
 
     void Jump()
