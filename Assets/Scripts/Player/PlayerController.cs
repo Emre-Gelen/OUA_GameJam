@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // aydin
+    
     public float MovementSpeed = 7f;
     public float JumpForce = 13f;
     public float GroundCheckRadius;
@@ -40,7 +40,16 @@ public class PlayerController : MonoBehaviour
     public Transform GroundCheck;
     public Transform WallCheck;
     public LayerMask GroundLayer;
-    // Start is called before the first frame update
+
+
+    // Aydin - Dash degiskenleri
+    private bool canDash = true;
+    private bool isDashing;
+    public float dashingPower = 24f;
+    public float dashingTime = 0.2f;
+    public float dashingCooldown = 1f;
+    [SerializeField] private TrailRenderer _trailRenderer;
+
     void Start()
     {
         _characterRB = GetComponent<Rigidbody2D>();
@@ -53,15 +62,32 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Anlik dash atma kontrolu
+        if (isDashing) {
+            return;
+        }
+
         CheckDirection();
         CheckJump();
         UpdateAnimations();
         CheckIfCanJump();
         CheckIfWallSliding();
+
+        // Dash Baslatma Kontrolu
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash) {
+
+            StartCoroutine(Dash());
+        }
+
     }
 
     void FixedUpdate()
     {
+
+        //Anlik dash atma kontolu
+        if (isDashing) {
+            return;
+        }
         ApplyMovement();
         CheckSurroundings();
     }
@@ -179,5 +205,32 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(GroundCheck.position, GroundCheckRadius);
 
         Gizmos.DrawLine(WallCheck.position, new Vector3(WallCheck.position.x + WallCheckDistance, WallCheck.position.y, WallCheck.position.z));
+    }
+
+    // Dash icin core routine
+    private IEnumerator Dash() {
+
+        canDash = false;
+        isDashing = true;
+
+        float originalGravity = _characterRB.gravityScale;
+        _characterRB.gravityScale = 0f;
+
+        if (_isFacingRight)
+        {
+            _characterRB.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        }
+        else {
+            _characterRB.velocity = new Vector2(transform.localScale.x * -dashingPower, 0f);
+
+        }
+
+        _trailRenderer.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        _trailRenderer.emitting = false;
+        _characterRB.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
     }
 }
