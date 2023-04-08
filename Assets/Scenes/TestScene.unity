@@ -1720,20 +1720,8 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 53119503, guid: ee14459f600f6ec4783a1f1bae436bcc, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 1018a6c4f12154d51a8cca1069f6405a, type: 2}
-    - target: {fileID: 53119508, guid: ee14459f600f6ec4783a1f1bae436bcc, type: 3}
-      propertyPath: WallSlidingSpeed
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1908850870069242641, guid: ee14459f600f6ec4783a1f1bae436bcc, type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1908850870069242641, guid: ee14459f600f6ec4783a1f1bae436bcc, type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8711184764569554572, guid: ee14459f600f6ec4783a1f1bae436bcc, type: 3}
