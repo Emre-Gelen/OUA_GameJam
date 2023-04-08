@@ -527,7 +527,9 @@ GameObject:
   - component: {fileID: 437764418}
   - component: {fileID: 437764420}
   - component: {fileID: 437764419}
+  - component: {fileID: 437764422}
   - component: {fileID: 437764421}
+  - component: {fileID: 437764423}
   m_Layer: 6
   m_Name: Platforms
   m_TagString: Untagged
@@ -1153,7 +1155,82 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!19719996 &437764421
+--- !u!66 &437764421
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437764417}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 437764423}
+    m_ColliderPaths:
+    - - X: 60000000
+        Y: 180000000
+      - X: 50000000
+        Y: 180000000
+      - X: 50000000
+        Y: 40000000
+      - X: 60000000
+        Y: 40000000
+    - - X: 110000000
+        Y: 180000000
+      - X: 100000000
+        Y: 180000000
+      - X: 100000000
+        Y: 0
+      - X: -50000000
+        Y: 0
+      - X: -50000000
+        Y: -10000000
+      - X: 110000000
+        Y: -10000000
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 10.99997, y: -1}
+      - {x: 10.99997, y: 18}
+      - {x: 10, y: 17.999971}
+      - {x: 9.99997, y: 0}
+      - {x: -5, y: -0.000029300001}
+      - {x: -4.999971, y: -1}
+    - - {x: 5.999971, y: 4}
+      - {x: 5.999971, y: 18}
+      - {x: 5, y: 17.999971}
+      - {x: 5.000029, y: 4}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+--- !u!50 &437764422
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437764417}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!19719996 &437764423
 TilemapCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1643,6 +1720,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 53119503, guid: ee14459f600f6ec4783a1f1bae436bcc, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 1018a6c4f12154d51a8cca1069f6405a, type: 2}
+    - target: {fileID: 53119508, guid: ee14459f600f6ec4783a1f1bae436bcc, type: 3}
+      propertyPath: WallSlidingSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1908850870069242641, guid: ee14459f600f6ec4783a1f1bae436bcc, type: 3}
       propertyPath: m_Name
       value: Player

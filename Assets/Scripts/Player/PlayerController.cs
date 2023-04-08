@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
 
     void UpdateAnimations()
     {
-        _characterAnimator.SetBool("IsWalking", _characterRB.velocity.x != 0);
+        _characterAnimator.SetBool("IsWalking", _characterRB.velocity.x != 0 && Math.Abs(_characterRB.velocity.x) > 0.12);
         _characterAnimator.SetBool("IsGrounded", _isGrounded);
         _characterAnimator.SetFloat("yVelocity", _characterRB.velocity.y);
         _characterAnimator.SetBool("IsWallSliding", _isWallSliding);
@@ -119,6 +119,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_canJump)
         {
+            int _intMovementDirection = _movementDirection < 0 ? -1 : 1;
             if (!_isWallSliding)
             {
                 _characterRB.velocity = new Vector2(_characterRB.velocity.x, JumpForce);
@@ -127,7 +128,7 @@ public class PlayerController : MonoBehaviour
             {
                 _characterRB.AddForce(new Vector2(WallHopForce * WallHopDirection.x * -_facingDirection, WallHopForce * WallHopDirection.y), ForceMode2D.Impulse);
             }
-            else if ((_isWallSliding || _isTouchingWall) && _movementDirection != 0)
+            else if ((_isWallSliding || _isTouchingWall) && _movementDirection != 0 && _intMovementDirection != _facingDirection)
             {
                 _characterRB.AddForce(new Vector2(WallJumpForce * WallJumpDirection.x * _movementDirection, WallJumpForce * WallJumpDirection.y), ForceMode2D.Impulse);
             }
