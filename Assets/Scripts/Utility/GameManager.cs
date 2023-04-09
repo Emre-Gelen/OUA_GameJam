@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Static getter/setter for player score (for convenience)
