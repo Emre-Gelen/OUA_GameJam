@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzleStartTrigger : MonoBehaviour
+public class PuzzleStartTrigger : PickUp
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override void HandlePickUp(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            PuzzleControl.StartPuzzle();
-        }
+        PuzzleControl.StartPuzzle();
+        base.HandlePickUp(collision);
     }
 }
