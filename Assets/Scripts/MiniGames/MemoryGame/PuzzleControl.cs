@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class PuzzleControl : MonoBehaviour
 {
+    public static PuzzleControl instance = null;
+
+    public static bool _isPuzzleStarted;
+
     public int xCount = 5, yCount = 8;
     public GameObject piecePrefab;
     public Transform parentCanvas;
@@ -15,10 +19,34 @@ public class PuzzleControl : MonoBehaviour
     int count = 0;
     public GameObject firstObject, secondObject;
 
-    private void Start()
+
+    private void Awake()
     {
-        StartCoroutine(SpawnPiece());
+        if (instance is null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
+
+    public static void StartPuzzle()
+    {
+        if (!_isPuzzleStarted)
+        {
+            instance.parentCanvas.parent.gameObject.SetActive(true);
+            instance.StartCore();
+            _isPuzzleStarted = true;
+        }
+    }
+
+    private void StartCore()
+    {
+        StartCoroutine(instance.SpawnPiece());
+    }
+
     private IEnumerator SpawnPiece()
     {
         for (int y = 0; y < yCount; y++)
