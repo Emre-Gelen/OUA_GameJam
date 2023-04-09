@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class movePic : MonoBehaviour
 {
-
     Camera camera;
     Vector2 firstPosition;
     GameObject[] box_array;
