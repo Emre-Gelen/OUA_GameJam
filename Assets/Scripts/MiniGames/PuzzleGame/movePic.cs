@@ -11,7 +11,7 @@ public class movePic : MonoBehaviour
     int piece = 0;
     int sum = 25;
 
-   // puzzleManager manager;
+    puzzleManager manager;
 
     private void OnMouseDrag()
     {
@@ -26,7 +26,7 @@ public class movePic : MonoBehaviour
         firstPosition = transform.position;
 
         box_array = GameObject.FindGameObjectsWithTag("puzzleBox");
-      //  manager = GameObject.Find("puzzleManager").GetComponent<puzzleManager>();
+        manager = GameObject.Find("Manager").GetComponent<puzzleManager>();
     }
 
     void Update()
@@ -44,8 +44,8 @@ public class movePic : MonoBehaviour
                     {
 
                         transform.position = boxx.transform.position;
-                        // manager.numberIncrease();
-                        // this.enabled = false;
+                         manager.numberIncrease();
+                         this.enabled = false;
                         piece++;
                     }
                     else {
