@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CloseDoor
   - OpenDoor
+  - puzzleBox
   layers:
   - Default
   - TransparentFX
