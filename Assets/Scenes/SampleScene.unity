@@ -4339,6 +4339,7 @@ MonoBehaviour:
   puan_txt: {fileID: 1217474388}
   tiklandi: 0
   bitti_panel: {fileID: 1194294477}
+  GameCanvas: {fileID: 0}
 --- !u!4 &1055370313
 Transform:
   m_ObjectHideFlags: 0
@@ -4588,7 +4589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 0.8
+  m_ScaleFactor: 0.4
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0

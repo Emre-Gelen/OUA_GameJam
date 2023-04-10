@@ -14,7 +14,7 @@ public class Piece : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         GameObject click = this.gameObject;
-        Debug.Log(click.name);
+       // Debug.Log(click.name);
         puzzleManager.GetComponent<PuzzleControl>().PieceShow(click);
     }
 }

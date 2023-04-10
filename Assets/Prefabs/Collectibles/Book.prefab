@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5462954163923228985}
   - component: {fileID: 7686993120024293907}
-  - component: {fileID: 2793995371508183537}
+  - component: {fileID: 27226922305516306}
+  - component: {fileID: 6598452717066513583}
   - component: {fileID: 2939678620620767633}
   m_Layer: 0
   m_Name: Book
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1848099143
-  m_SortingLayer: 5
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 196709086, guid: 52e4fc2ba518a46f6ae00990717ef303, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2793995371508183537
+--- !u!114 &27226922305516306
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,12 +96,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 2078789523114293724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5756a8a8fe5e24bb49fbe8ac7ecae406, type: 3}
+  m_Script: {fileID: 11500000, guid: 17510c90f73b4924cb9d1d28ab053652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickUpEffect: {fileID: 0}
-  PickUpSoundEffect: {fileID: 0}
-  Score: 50
+  speed: 2
+  height: 0.05
+--- !u!114 &6598452717066513583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078789523114293724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b59877fc201f94190a74ccaf7816e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: MemoryGame
 --- !u!61 &2939678620620767633
 BoxCollider2D:
   m_ObjectHideFlags: 0
