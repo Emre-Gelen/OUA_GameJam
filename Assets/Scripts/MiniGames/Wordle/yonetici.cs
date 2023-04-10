@@ -2,45 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class yonetici : MonoBehaviour
 {
-    public static yonetici instance = null;
-
-    private static bool _isWordleStarted;
-
     public string[] sozluk;
     public Text puan_txt;
     public bool tiklandi = false;
     public GameObject bitti_panel;
-    public GameObject GameCanvas;
     
     List<GameObject> isaretli_butonlar;
     string kelime= null;
     int puan = 0;
     int bulunan_kelime_sayisi = 0;
-
-
-    private void Awake()
+    
+    void Start()
     {
-        if (instance is null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
-    public static void StartWordle()
-    {
-        if (!_isWordleStarted)
-        {
-            _isWordleStarted = true;
-            instance.isaretli_butonlar = new();
-            instance.GameCanvas.SetActive(true);
-        }
+        isaretli_butonlar = new List<GameObject>();
     }
     
     public void isaretli_buton_olustur(GameObject buton)
@@ -58,9 +36,6 @@ public class yonetici : MonoBehaviour
     
     void Update()
     {
-        if (!_isWordleStarted)
-            return;
-
         if (Input.GetMouseButtonDown(0))
         {
             tiklandi = true;
@@ -101,9 +76,7 @@ public class yonetici : MonoBehaviour
         if (bulunan_kelime_sayisi == sozluk.Length)
         {
             bitti_panel.SetActive(true);
-            instance.GameCanvas.SetActive(false);
-            GameManager.AddScore(puan);
-            _isWordleStarted = false;
+            SceneManager.LoadScene("Bo1");
         }
     }
 }
